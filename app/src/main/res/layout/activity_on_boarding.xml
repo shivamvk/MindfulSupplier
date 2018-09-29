@@ -4,60 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OnBoardingActivity"
-    android:background="@drawable/truck">
+    tools:context=".OnBoardingActivity">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent">
 
-            <TextView
+            <LinearLayout
+                android:layout_gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="MINDFUL MACHINE"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:gravity="center"
-                android:layout_marginTop="45dp"
-                android:textStyle="bold"/>
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Find loads at best price"
-                android:textColor="@android:color/white"
-                android:textSize="15sp"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MINDFUL SUPPLIER"
+                    android:textColor="@android:color/black"
+                    android:textSize="20sp"
+                    android:gravity="center"
+                    android:layout_marginTop="45dp"
+                    android:textStyle="bold"/>
 
-        </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Find loads at best price"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"/>
 
-    </ScrollView>
+            </LinearLayout>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sign in"
-        android:id="@+id/bt_on_boarding_sign_in"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="68dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/rounded_button"/>
+        </ScrollView>
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Sign up"
-        android:layout_marginBottom="12dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/rounded_button"
-        android:id="@+id/bt_on_boarding_sign_up"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

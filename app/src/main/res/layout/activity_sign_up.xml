@@ -5,11 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SignUpActivity"
-    android:background="@drawable/truck">
+    android:background="@android:color/white">
 
     <ScrollView
+        android:layout_marginTop="56dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,8 +21,8 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="MINDFUL MACHINE"
-                android:textColor="@android:color/white"
+                android:text="MINDFUL SUPPLIER"
+                android:textColor="@android:color/black"
                 android:textSize="20sp"
                 android:gravity="center"
                 android:layout_marginTop="45dp"
@@ -32,7 +33,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Find loads at best price"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="15sp"/>
 
             <EditText
@@ -45,7 +46,6 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:inputType="text"
-                android:background="@drawable/rounded_edit_text"
                 android:hint="Enter your name"/>
 
             <EditText
@@ -58,7 +58,6 @@
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:inputType="textEmailAddress"
-                android:background="@drawable/rounded_edit_text"
                 android:hint="Enter your email"/>
 
             <TextView
@@ -83,45 +82,57 @@
                 android:layout_marginTop="16dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
-                android:inputType="number"
-                android:background="@drawable/rounded_edit_text"
                 android:hint="Enter your number"/>
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <EditText
                 android:layout_marginLeft="32dp"
-                android:layout_marginRight="32dp">
+                android:layout_marginRight="32dp"
+                android:id="@+id/et_signup_otp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="16dp"
+                android:maxLength="4"
+                android:paddingRight="16dp"
+                android:inputType="number"
+                android:hint="Enter your otp"/>
 
-                <EditText
-                    android:id="@+id/et_signup_password"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="50dp">
+
+                <Button
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="16dp"
-                    android:paddingLeft="16dp"
-                    android:paddingRight="16dp"
-                    android:inputType="textPassword"
-                    android:background="@drawable/rounded_edit_text"
-                    android:hint="Enter your password"/>
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_edit_text_red"
+                    android:text="Sign Up"
+                    android:textColor="@android:color/white"
+                    android:visibility="gone"
+                    android:id="@+id/bt_sign_up"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_edit_text_red"
+                    android:text="Request Otp"
+                    android:textColor="@android:color/white"
+                    android:id="@+id/bt_signup_request_otp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"/>
 
             </RelativeLayout>
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_button"
-                android:text="Sign up"
-                android:id="@+id/bt_sign_up"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="32dp"
-                android:layout_marginRight="32dp"/>
 
             <TextView
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="By signing up, you agree to our terms and conditions"
                 android:gravity="center"
-                android:textColor="@android:color/white"/>
+                android:textColor="@android:color/black"/>
 
         </LinearLayout>
 

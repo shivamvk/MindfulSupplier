@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,173 +16,467 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="@drawable/truck">
+                android:background="@android:color/holo_blue_dark">
 
                 <ImageView
+                    android:visibility="gone"
+                    android:id="@+id/iv_account_edit_user_number"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:srcCompat="@drawable/ic_create_white_24dp"
-                    android:id="@+id/iv_account_edit_user_number"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentTop="true"
                     android:layout_margin="12dp"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    app:srcCompat="@drawable/ic_create_black_24dp" />
 
                 <ImageView
+                    android:id="@+id/iv_account_user_image"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    app:srcCompat="@drawable/ic_account_circle_white_24dp"
                     android:layout_centerInParent="true"
-                    android:id="@+id/iv_account_user_image"/>
+                    app:srcCompat="@drawable/ic_account_circle_white_24dp" />
 
                 <TextView
+                    android:id="@+id/tv_account_user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="User name"
-                    android:id="@+id/tv_account_user_name"
                     android:layout_below="@+id/iv_account_user_image"
                     android:gravity="center"
-                    android:textSize="20sp"
+                    android:text="User name"
                     android:textColor="@android:color/white"
-                    android:textStyle="bold"/>
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
             </RelativeLayout>
 
-            <android.support.v7.widget.CardView
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="shivam.vk529@gmail.com"
-                        android:id="@+id/tv_account_user_email"
-                        android:textSize="18sp"
-                        android:textColor="@android:color/black"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Not verified. Click here to verify! "
-                        android:id="@+id/tv_account_email_not_verified"
-                        android:textColor="@android:color/holo_red_dark"
-                        android:layout_below="@+id/tv_account_user_email"/>
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/ic_error_black_24dp"
-                        android:id="@+id/iv_account_email_not_verified"
-                        android:layout_toRightOf="@+id/tv_account_email_not_verified"
-                        android:layout_below="@+id/tv_account_user_email"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Verified "
-                        android:id="@+id/tv_account_email_verified"
-                        android:textColor="@android:color/holo_green_dark"
-                        android:layout_below="@+id/tv_account_user_email"
-                        android:visibility="gone"/>
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:visibility="gone"
-                        android:src="@drawable/ic_check_circle_black_24dp"
-                        android:id="@+id/iv_account_email_verified"
-                        android:layout_toRightOf="@+id/tv_account_email_verified"
-                        android:layout_below="@+id/tv_account_user_email"/>
-
-                </RelativeLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginRight="16dp"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="8130583124"
-                        android:id="@+id/tv_account_user_number"
-                        android:textSize="18sp"
-                        android:textColor="@android:color/black"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Not verified. Click here to verify! "
-                        android:id="@+id/tv_account_number_not_verified"
-                        android:textColor="@android:color/holo_red_dark"
-                        android:layout_below="@+id/tv_account_user_number"/>
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:src="@drawable/ic_error_black_24dp"
-                        android:id="@+id/iv_account_is_number_verified"
-                        android:layout_toRightOf="@+id/tv_account_number_not_verified"
-                        android:layout_below="@+id/tv_account_user_number"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Verified "
-                        android:id="@+id/tv_account_number_verified"
-                        android:textColor="@android:color/holo_green_dark"
-                        android:layout_below="@+id/tv_account_user_number"
-                        android:visibility="gone"/>
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:visibility="gone"
-                        android:src="@drawable/ic_check_circle_black_24dp"
-                        android:id="@+id/iv_account_number_verified"
-                        android:layout_toRightOf="@+id/tv_account_number_verified"
-                        android:layout_below="@+id/tv_account_user_number"/>
-
-                </RelativeLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:id="@+id/cv_logout">
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="16dp">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_account_user_name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Logout"
-                    android:gravity="center"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginBottom="12dp"
-                    android:textSize="18sp"/>
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="#000000"
+                    android:hint="Name"
+                    android:textSize="18sp" />
 
-            </android.support.v7.widget.CardView>
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tv_account_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_account_user_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="#000000"
+                    android:hint="Email"
+                    android:text="shivam.vk529@gmail.com"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_account_email_not_verified"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_account_user_email"
+                    android:text="Not verified. Click here to verify! "
+                    android:textColor="@android:color/holo_red_dark" />
+
+                <ImageView
+                    android:id="@+id/iv_account_email_not_verified"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_below="@+id/et_account_user_email"
+                    android:layout_toRightOf="@+id/tv_account_email_not_verified"
+                    android:src="@drawable/ic_error_black_24dp" />
+
+                <TextView
+                    android:id="@+id/tv_account_email_verified"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_account_user_email"
+                    android:text="Verified "
+                    android:textColor="@android:color/holo_green_dark"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/iv_account_email_verified"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_below="@+id/et_account_user_email"
+                    android:layout_toRightOf="@+id/tv_account_email_verified"
+                    android:src="@drawable/ic_check_circle_black_24dp"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tv_account_mobile_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Number"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:maxLength="10"
+                    android:inputType="number"
+                    android:id="@+id/et_account_user_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="#000000"
+                    android:hint="Number"
+                    android:text="7500757759"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/tv_account_number_not_verified"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_account_user_number"
+                    android:text="Not verified. Click here to verify! "
+                    android:textColor="@android:color/holo_red_dark"
+                    android:visibility="gone" />
+
+                <ImageView
+                    android:id="@+id/iv_account_number_not_verified"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_below="@+id/et_account_user_number"
+                    android:layout_toRightOf="@+id/tv_account_number_not_verified"
+                    android:src="@drawable/ic_error_black_24dp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/tv_account_number_verified"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/et_account_user_number"
+                    android:text="Verified "
+                    android:textColor="@android:color/holo_green_dark"
+                    android:visibility="visible" />
+
+                <ImageView
+                    android:id="@+id/iv_account_number_verified"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_below="@+id/et_account_user_number"
+                    android:layout_toRightOf="@+id/tv_account_number_verified"
+                    android:src="@drawable/ic_check_circle_black_24dp"
+                    android:visibility="visible" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tv_account_alternate_mobile_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alternate Number"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:maxLength="10"
+                    android:inputType="number"
+                    android:id="@+id/et_account_alternate_user_number"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:backgroundTint="#000000"
+                    android:hint="Alternate Number"
+                    android:textSize="18sp" />
+
+
+            </RelativeLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/darker_gray" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tv_pan_card_activity_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="PAN Card"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_pan_card_personal"
+                    android:layout_below="@+id/tv_pan_card_activity_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="#000000"
+                    android:text="(Personal/Company)"/>
+
+                <RelativeLayout
+                    android:layout_marginLeft="4dp"
+                    android:id="@+id/rl_upload_pan_card_activity_account"
+                    android:layout_marginTop="8dp"
+                    android:layout_below="@+id/tv_pan_card_personal"
+                    android:background="@drawable/edit_text_with_border"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp">
+
+                    <ImageView
+                        android:id="@+id/iv_upload_pan_card_activity_account"
+                        android:visibility="gone"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="4dp"
+                        android:layout_width="105dp"
+                        android:layout_height="105dp"
+                        android:src="@drawable/home"/>
+
+                    <ImageView
+                        android:id="@+id/iv_dummy_image_pan_card"
+                        android:layout_centerInParent="true"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_photo_camera_black_24dp"/>
+
+                    <TextView
+                        android:layout_below="@+id/iv_dummy_image_pan_card"
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="PAN Card" />
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/darker_gray" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tv_address_proof_activity_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Proof of Address"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_address_proof"
+                    android:layout_below="@+id/tv_address_proof_activity_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="#000000"
+                    android:text="(Eg.Adhaar,Voter Card, DL, Passport etc)"/>
+
+                <RelativeLayout
+                    android:layout_marginLeft="4dp"
+                    android:id="@+id/rl_upload_address_proof_activity_account"
+                    android:layout_marginTop="8dp"
+                    android:layout_below="@+id/tv_address_proof"
+                    android:background="@drawable/edit_text_with_border"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp">
+
+                    <ImageView
+                        android:id="@+id/iv_upload_address_proof_activity_account"
+                        android:visibility="gone"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="4dp"
+                        android:layout_width="105dp"
+                        android:layout_height="105dp"
+                        android:src="@drawable/home"/>
+
+                    <ImageView
+                        android:id="@+id/iv_dummy_image_address_proof"
+                        android:layout_centerInParent="true"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_photo_camera_black_24dp"/>
+
+                    <TextView
+                        android:layout_below="@+id/iv_dummy_image_address_proof"
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Proof of Address" />
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/darker_gray" />
+
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tv_visiting_card_activity_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Visiting Card"
+                    android:textColor="@android:color/holo_blue_dark"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/tv_visiting_card"
+                    android:layout_below="@+id/tv_visiting_card_activity_account"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="#000000"
+                    android:text="(of your transport firm)"/>
+
+                <RelativeLayout
+                    android:layout_marginLeft="4dp"
+                    android:id="@+id/rl_upload_visiting_card_activity_account"
+                    android:layout_marginTop="8dp"
+                    android:layout_below="@+id/tv_visiting_card"
+                    android:background="@drawable/edit_text_with_border"
+                    android:layout_width="110dp"
+                    android:layout_height="110dp">
+
+                    <ImageView
+                        android:id="@+id/iv_upload_pod_front"
+                        android:visibility="gone"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="4dp"
+                        android:layout_width="105dp"
+                        android:layout_height="105dp"
+                        android:src="@drawable/home"/>
+
+                    <ImageView
+                        android:id="@+id/iv_dummy_image_visiting_card"
+                        android:layout_centerInParent="true"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_photo_camera_black_24dp"/>
+
+                    <TextView
+                        android:layout_below="@+id/iv_dummy_image_visiting_card"
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Visiting Card" />
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/darker_gray" />
+
+
+            <Button
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_edit_text_red"
+                android:text="Save changes"
+                android:textColor="@android:color/white"
+                android:id="@+id/bt_save_changes"/>
+
+            <Button
+                android:id="@+id/bt_logout"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:backgroundTint="@android:color/holo_blue_dark"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:background="@drawable/rounded_edit_text_blue"
+                android:text="Logout"
+                android:textColor="@android:color/white"/>
 
         </LinearLayout>
 

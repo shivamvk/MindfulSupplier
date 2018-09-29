@@ -1,13 +1,30 @@
 package com.example.shivamvk.mindfulsupplier;
 
 public class Order {
-    private String supplier,loadingPoint,tripDestination,truckType,materialType,loadingDate,remarks,completed,orderby;
+    private String supplier,loadingPoint,tripDestination,truckType,materialType,loadingDate,loadingTime,paymentType
+            ,noOfTrucks,remarks,completed,orderby;
 
     public Order(){
 
     }
 
-    public Order(String supplier, String loadingPoint, String tripDestination, String truckType, String materialType, String loadingDate, String remarks, String completed, String orderby) {
+    public Order(String supplier, String loadingPoint, String tripDestination, String truckType, String materialType, String loadingDate
+            , String loadingTime, String paymentType, String noOfTrucks, String remarks, String completed, String orderby) {
+        this.supplier = supplier;
+        this.loadingPoint = loadingPoint;
+        this.tripDestination = tripDestination;
+        this.truckType = truckType;
+        this.materialType = materialType;
+        this.loadingDate = loadingDate;
+        this.loadingTime = loadingTime;
+        this.paymentType = paymentType;
+        this.noOfTrucks = noOfTrucks;
+        this.remarks = remarks;
+        this.completed = completed;
+        this.orderby = orderby;
+    }
+
+    /*public Order(String supplier, String loadingPoint, String tripDestination, String truckType, String materialType, String loadingDate, String remarks, String completed, String orderby) {
         this.loadingPoint = loadingPoint;
         this.tripDestination = tripDestination;
         this.truckType = truckType;
@@ -17,7 +34,7 @@ public class Order {
         this.completed = completed;
         this.orderby = orderby;
         this.supplier = supplier;
-    }
+    }*/
 
     public String getSupplier() {
         return supplier;
@@ -41,6 +58,18 @@ public class Order {
 
     public String getLoadingDate() {
         return loadingDate;
+    }
+
+    public String getLoadingTime() {
+        return loadingTime;
+    }
+
+    public String getPaymentType() {
+        return paymentType;
+    }
+
+    public String getNoOfTrucks() {
+        return noOfTrucks;
     }
 
     public String getRemarks() {

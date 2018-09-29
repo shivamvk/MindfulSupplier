@@ -7,56 +7,168 @@
     tools:context=".UploadPOD"
     android:background="@android:color/white">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_alignParentTop="true"
+
+        <TextView
+            android:gravity="center"
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:text="PROOF OF DElIVERY"
+            android:background="@color/blue"
+            android:textColor="@android:color/white"/>
+
+        <EditText
+            android:layout_marginRight="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Order No"/>
+
+        <RelativeLayout
+            android:layout_marginTop="24dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_marginBottom="16dp">
+            android:orientation="vertical">
 
-
-            <ImageView
-                android:maxHeight="200dp"
-                android:scaleType="center"
+            <LinearLayout
+                android:layout_marginRight="6dp"
+                android:layout_marginLeft="6dp"
+                android:id="@+id/ll_images"
+                android:layout_alignParentTop="true"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:id="@+id/iv_upload_pod_f"
-                android:layout_weight="10"
-                android:src="@drawable/camera"
-                android:layout_marginTop="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="8dp" />
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="16dp">
 
-            <ImageView
-                android:scaleType="center"
-                android:maxHeight="200dp"
-                android:id="@+id/iv_upload_pod_b"
+
+                <RelativeLayout
+                    android:padding="3dp"
+                    android:id="@+id/rl_upload_pod_front"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edit_text_with_border"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="135dp">
+
+                    <ImageView
+                        android:id="@+id/iv_upload_pod_front"
+                        android:visibility="gone"
+                        android:layout_centerInParent="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/home"/>
+
+                    <ImageView
+                        android:id="@+id/iv_dummy_image_1"
+                        android:layout_centerInParent="true"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_photo_camera_black_24dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_upload_pod_front"
+                        android:layout_below="@+id/iv_dummy_image_1"
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="POD Front" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:padding="3dp"
+                    android:layout_marginLeft="4dp"
+                    android:id="@+id/rl_upload_pod_back"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edit_text_with_border"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="135dp">
+
+                    <ImageView
+                        android:id="@+id/iv_upload_pod_back"
+                        android:visibility="gone"
+                        android:layout_centerInParent="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/home"/>
+
+                    <ImageView
+                        android:id="@+id/iv_dummy_image_2"
+                        android:layout_centerInParent="true"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_photo_camera_black_24dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_upload_pod_back"
+                        android:layout_below="@+id/iv_dummy_image_2"
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="POD Back" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:padding="3dp"
+                    android:layout_marginLeft="4dp"
+                    android:id="@+id/rl_upload_pod_other_docs"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/edit_text_with_border"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="135dp">
+
+                    <ImageView
+                        android:id="@+id/iv_upload_pod_other_docs"
+                        android:visibility="gone"
+                        android:layout_centerInParent="true"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/home"/>
+
+                    <ImageView
+                        android:id="@+id/iv_dummy_image_3"
+                        android:layout_centerInParent="true"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/ic_photo_camera_black_24dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_upload_pod_other_docs"
+                        android:layout_below="@+id/iv_dummy_image_3"
+                        android:layout_centerInParent="true"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Other Documents" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:textSize="18sp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="24dp"
+                android:textColor="@android:color/white"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="10"
-                android:src="@drawable/camera"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginTop="8dp"/>
+                android:id="@+id/bt_submit_pod"
+                android:layout_height="wrap_content"
+                android:text="Submit"
+                android:background="@color/colorPrimaryDark"/>
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <Button
-            android:textColor="@android:color/white"
-            android:layout_alignParentBottom="true"
-            android:layout_width="match_parent"
-            android:id="@+id/bt_upload_pod"
-            android:layout_height="wrap_content"
-            android:text="Upload"
-            android:background="@color/colorPrimaryDark"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
