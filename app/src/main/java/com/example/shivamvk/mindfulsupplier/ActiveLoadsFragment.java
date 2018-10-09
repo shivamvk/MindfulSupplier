@@ -57,7 +57,7 @@ public class ActiveLoadsFragment extends Fragment {
     private void loadActiveLoads() {
         DatabaseReference reference = FirebaseDatabase.getInstance()
                 .getReference("suppliers")
-                .child(generateHash(SharedPrefManager.getInstance(getContext()).getEmail()))
+                .child(SharedPrefManager.getInstance(getContext()).getNumber())
                 .child("appliedfor");
 
         reference.addValueEventListener(new ValueEventListener() {

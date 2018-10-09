@@ -1,5 +1,6 @@
 package com.example.shivamvk.mindfulsupplier;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -11,9 +12,14 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -54,6 +60,9 @@ public class RecommendedFragment extends Fragment {
     List<Order> LIST_OF_ORDERS;
     List<String> APPLIEDORDERS;
 
+    private EditText etFilterFrom,etFilterTo;
+    private CardView cvFilter;
+
     private int LOADING_POINT_REQUEST_CODE = 1;
     private int TRIP_DESTINATION_REQUEST_CODE = 2;
 
@@ -69,11 +78,16 @@ public class RecommendedFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_recommended, null, false);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         getActivity().setTitle("Mindful Supplier");
+
+        cvFilter = view.findViewById(R.id.cv_filter_fragment_recommended);
+        etFilterFrom = view.findViewById(R.id.et_filter_from_fragment_recommended);
+        etFilterTo = view.findViewById(R.id.et_filter_to_fragment_recommended);
 
         tvRecommendedNoOrders = view.findViewById(R.id.tv_recommended_no_order);
         pbRecommended = view.findViewById(R.id.pb_recommended);
@@ -86,7 +100,7 @@ public class RecommendedFragment extends Fragment {
         LIST_OF_ORDERS = new ArrayList<>();
         APPLIEDORDERS = new ArrayList<>();
 
-        filterMap = new HashMap<>();
+      /*  filterMap = new HashMap<>();
 
         if (SharedPrefManager.getInstance(getContext()).getFilterOrigin() != null){
             filterMap.put("filterorigin", SharedPrefManager.getInstance(getContext()).getFilterOrigin());
@@ -116,9 +130,10 @@ public class RecommendedFragment extends Fragment {
             filterMap.put("filterdate", SharedPrefManager.getInstance(getContext()).getFilterDate());
             btFilterRecomended.setText("Filter(" + (NoOfFilters + 1) + ")");
             NoOfFilters++;
-        }
+        }*/
 
-        listAppliedOrders();
+        /*listAppliedOrders();
+        Log.i("TAG", "onViewCreated: 11");
 
         if (filterMap.isEmpty()){
             loadOrders();
@@ -126,7 +141,10 @@ public class RecommendedFragment extends Fragment {
             loadOrders(filterMap);
         }
 
-        btFilterRecomended.setOnClickListener(new View.OnClickListener() {
+        loadOrders();
+        Log.i("TAG", "onViewCreated: 22");*/
+
+        /*btFilterRecomended.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
@@ -433,15 +451,106 @@ public class RecommendedFragment extends Fragment {
                 });
                 AlertDialog dialog = builder.show();
             }
+        });*/
+
+
+        listAppliedOrders();
+        Log.i("TAG", "onViewCreated: 11");
+
+       /* if (filterMap.isEmpty()){
+            loadOrders();
+        } else {
+            loadOrders(filterMap);
+        }*/
+
+        loadOrders("","");
+        Log.i("TAG", "onViewCreated: 22");
+
+        etFilterTo.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_RIGHT = 2;
+                etFilterTo.requestFocus();
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+                    if(event.getRawX() >= (etFilterTo.getRight() - etFilterTo.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        etFilterTo.setText("");
+                        return true;
+                    }
+                }
+                return false;
+            }
         });
+
+
+        etFilterFrom.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                final int DRAWABLE_RIGHT = 2;
+                etFilterFrom.requestFocus();
+                if(event.getAction() == MotionEvent.ACTION_UP) {
+                    if(event.getRawX() >= (etFilterFrom.getRight() - etFilterFrom.getCompoundDrawables()[DRAWABLE_RIGHT].getBounds().width())) {
+                        etFilterFrom.setText("");
+
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+
+        etFilterFrom.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(editable.length()==0){
+                   loadOrders("",etFilterTo.getText().toString().trim());
+                } else {
+                    loadOrders(editable.toString().trim(),etFilterTo.getText().toString().trim());
+                }
+            }
+        });
+
+        etFilterTo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                if(editable.length()==0){
+                    loadOrders(etFilterFrom.getText().toString().trim(),"");
+                } else {
+                    loadOrders(etFilterFrom.getText().toString().trim(),editable.toString().trim());
+                }
+            }
+        });
+
     }
 
     private void listAppliedOrders() {
         DatabaseReference reference = FirebaseDatabase.getInstance()
                 .getReference("suppliers")
-                .child(generateHash(SharedPrefManager.getInstance(getContext()).getEmail()))
+               // .child(generateHash(SharedPrefManager.getInstance(getContext()).getEmail()))
+                .child(SharedPrefManager.getInstance(getContext()).getNumber())
                 .child("appliedfor");
 
+        Log.i("TAG", "onViewCreated: 33");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -455,11 +564,11 @@ public class RecommendedFragment extends Fragment {
 
             }
         });
-
+        Log.i("TAG", "onViewCreated: 11 size" + APPLIEDORDERS.size());
 
     }
 
-    private void loadOrders() {
+    private void loadOrders(final String editable, final String editable1) {
         DatabaseReference reference= FirebaseDatabase.getInstance().getReference("users");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -468,19 +577,29 @@ public class RecommendedFragment extends Fragment {
                 for(DataSnapshot snapshot:dataSnapshot.getChildren()){
                     for(DataSnapshot snapshot1:snapshot.child("orders").getChildren()){
                         Order order = snapshot1.getValue(Order.class);
-                        LIST_OF_ORDERS.add(order);
+                        if(order.getLoadingPoint().toLowerCase().contains(editable.toLowerCase()) && order.getTripDestination().toLowerCase().contains(editable1.toLowerCase())){
+                            LIST_OF_ORDERS.add(order);
+                        }
+
 
                     }
                 }
-
+                Log.i("TAG", "onViewCreated: 55" + LIST_OF_ORDERS.size());
                 RecommendedAdapter adapter = new RecommendedAdapter(getContext(),LIST_OF_ORDERS,APPLIEDORDERS);
                 rvRecommended.setAdapter(adapter);
                 pbRecommended.setVisibility(View.GONE);
-                btFilterRecomended.setVisibility(View.VISIBLE);
+
+                cvFilter.setVisibility(View.VISIBLE);
+                if(LIST_OF_ORDERS.isEmpty()){
+                    //cvFilter.setVisibility(View.GONE);
+                    tvRecommendedNoOrders.setVisibility(View.VISIBLE);
+                }
+
+                /*btFilterRecomended.setVisibility(View.VISIBLE);
                 if(LIST_OF_ORDERS.isEmpty()){
                     btFilterRecomended.setVisibility(View.GONE);
                     tvRecommendedNoOrders.setVisibility(View.VISIBLE);
-                }
+                }*/
             }
 
             @Override
@@ -558,7 +677,7 @@ public class RecommendedFragment extends Fragment {
                 RecommendedAdapter adapter = new RecommendedAdapter(getContext(),LIST_OF_ORDERS,APPLIEDORDERS);
                 rvRecommended.setAdapter(adapter);
                 pbRecommended.setVisibility(View.GONE);
-                btFilterRecomended.setVisibility(View.VISIBLE);
+               // btFilterRecomended.setVisibility(View.VISIBLE);
                 if(LIST_OF_ORDERS.isEmpty()){
                     btFilterRecomended.setVisibility(View.GONE);
                     tvRecommendedNoOrders.setVisibility(View.VISIBLE);
@@ -589,7 +708,7 @@ public class RecommendedFragment extends Fragment {
         loadingtime.setText(sdf.format(calendar.getTime()));
     }
 
-    @Override
+   /* @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(requestCode==LOADING_POINT_REQUEST_CODE){
             if(resultCode==RESULT_OK){
@@ -615,5 +734,5 @@ public class RecommendedFragment extends Fragment {
             }
         }
 
-    }
+    }*/
 }

@@ -12,6 +12,9 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAM8x6qYLuBjFKSgVZqEIQuoEfmeTQ0mzw" />
+        <meta-data
+            android:name="sendotp.key"
+            android:value="233650AmGm8ef0C45b811710" />
 
         <activity
             android:name=".OnBoardingActivity"
@@ -23,14 +26,6 @@
             android:name=".SignUpActivity"
             android:theme="@style/NoActionBar" />
         <activity
-            android:name=".HomeActivity"
-            android:label="Mindful Supplier"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity
-            android:name=".AccountActivity"
-            android:parentActivityName=".HomeActivity"
-            android:theme="@style/NoActionBar" />
-        <activity
             android:name=".MainActivity"
             android:label="Mindful Supplier">
             <intent-filter>
@@ -39,7 +34,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".UploadPOD"></activity>
+        <activity
+            android:name=".UploadActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".UploadPOD"
+            android:parentActivityName=".MainActivity" />
+        <activity android:name=".OrderDetailsActivity"></activity>
     </application>
 
 </manifest>

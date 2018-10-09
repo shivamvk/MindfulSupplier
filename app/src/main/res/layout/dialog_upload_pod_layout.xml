@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".UploadPOD"
-    android:background="@android:color/white">
+    android:layout_height="wrap_content">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,17 +11,15 @@
 
 
         <TextView
-            android:gravity="center"
             android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="22sp"
             android:text="PROOF OF DElIVERY"
-            android:background="@color/gray"
-            android:textColor="@color/black"/>
+            android:background="@color/blue"
+            android:textColor="@android:color/white"/>
 
         <EditText
-            android:visibility="gone"
             android:layout_marginRight="24dp"
             android:layout_marginLeft="24dp"
             android:layout_marginTop="12dp"
@@ -39,8 +34,8 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_marginRight="6dp"
-                android:layout_marginLeft="6dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
                 android:id="@+id/ll_images"
                 android:layout_alignParentTop="true"
                 android:layout_width="match_parent"
@@ -50,20 +45,20 @@
 
 
                 <RelativeLayout
-                    android:padding="3dp"
                     android:id="@+id/rl_upload_pod_front"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/edit_text_with_border"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="135dp">
+                    android:layout_height="120dp">
 
                     <ImageView
                         android:id="@+id/iv_upload_pod_front"
                         android:visibility="gone"
                         android:layout_centerInParent="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_marginLeft="4dp"
+                        android:layout_width="105dp"
+                        android:layout_height="105dp"
                         android:src="@drawable/home"/>
 
                     <ImageView
@@ -74,7 +69,6 @@
                         android:src="@drawable/ic_photo_camera_black_24dp"/>
 
                     <TextView
-                        android:id="@+id/tv_upload_pod_front"
                         android:layout_below="@+id/iv_dummy_image_1"
                         android:layout_centerInParent="true"
                         android:layout_width="wrap_content"
@@ -84,21 +78,21 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:padding="3dp"
                     android:layout_marginLeft="4dp"
                     android:id="@+id/rl_upload_pod_back"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/edit_text_with_border"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="135dp">
+                    android:layout_height="120dp">
 
                     <ImageView
                         android:id="@+id/iv_upload_pod_back"
                         android:visibility="gone"
                         android:layout_centerInParent="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_marginLeft="4dp"
+                        android:layout_width="105dp"
+                        android:layout_height="105dp"
                         android:src="@drawable/home"/>
 
                     <ImageView
@@ -109,7 +103,6 @@
                         android:src="@drawable/ic_photo_camera_black_24dp"/>
 
                     <TextView
-                        android:id="@+id/tv_upload_pod_back"
                         android:layout_below="@+id/iv_dummy_image_2"
                         android:layout_centerInParent="true"
                         android:layout_width="wrap_content"
@@ -120,21 +113,21 @@
 
 
                 <RelativeLayout
-                    android:padding="3dp"
                     android:layout_marginLeft="4dp"
                     android:id="@+id/rl_upload_pod_other_docs"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/edit_text_with_border"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="135dp">
+                    android:layout_height="120dp">
 
                     <ImageView
                         android:id="@+id/iv_upload_pod_other_docs"
                         android:visibility="gone"
                         android:layout_centerInParent="true"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_marginLeft="4dp"
+                        android:layout_width="105dp"
+                        android:layout_height="105dp"
                         android:src="@drawable/home"/>
 
                     <ImageView
@@ -145,7 +138,6 @@
                         android:src="@drawable/ic_photo_camera_black_24dp"/>
 
                     <TextView
-                        android:id="@+id/tv_upload_pod_other_docs"
                         android:layout_below="@+id/iv_dummy_image_3"
                         android:layout_centerInParent="true"
                         android:layout_width="wrap_content"
@@ -157,15 +149,14 @@
             </LinearLayout>
 
             <Button
-                android:textSize="18sp"
-                android:layout_alignParentBottom="true"
                 android:layout_marginTop="24dp"
-                android:textColor="@color/red"
+                android:layout_below="@id/ll_images"
+                android:textColor="@android:color/white"
                 android:layout_width="match_parent"
-                android:id="@+id/bt_submit_pod"
+                android:id="@+id/bt_upload_pod"
                 android:layout_height="wrap_content"
                 android:text="Submit"
-                android:background="@color/grey"/>
+                android:background="@color/colorPrimaryDark"/>
 
         </RelativeLayout>
 

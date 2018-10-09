@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:isScrollContainer="false"
     android:clipToPadding="false"
     android:layout_gravity="fill_vertical">
@@ -25,6 +25,95 @@
                 android:visibility="gone"
                 android:id="@+id/bt_filter_recommended"
                 android:drawableLeft="@drawable/ic_filter_list_black_24dp"/>
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/cv_filter_fragment_recommended"
+                app:cardCornerRadius="4dp"
+                android:paddingTop="2dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+
+                    <RelativeLayout
+                        android:paddingTop="4dp"
+                        android:paddingLeft="4dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:paddingLeft="4dp"
+                            android:textColor="@color/gray"
+                            android:textSize="12sp"
+                            android:id="@+id/tv_from"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="From"/>
+
+                        <EditText
+                            android:id="@+id/et_filter_from_fragment_recommended"
+                            android:textColor="@android:color/black"
+                            android:layout_marginTop="-8dp"
+                            android:drawableRight="@drawable/places_ic_clear"
+                            android:textSize="17sp"
+                            android:layout_below="@id/tv_from"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:padding="2dp"
+                        android:tint="@color/gray"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:backgroundTint="@color/gray"
+                        android:background="@drawable/circle"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_arrow_forward_black_24dp"/>
+
+                    <RelativeLayout
+                        android:paddingTop="4dp"
+                        android:paddingLeft="8dp"
+                        android:layout_weight="1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:textColor="@color/gray"
+                            android:paddingLeft="4dp"
+                            android:textSize="12sp"
+                            android:id="@+id/tv_to"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="To"/>
+
+                        <EditText
+                            android:layout_marginTop="-8dp"
+                            android:id="@+id/et_filter_to_fragment_recommended"
+                            android:textColor="@android:color/black"
+                            android:drawableRight="@drawable/places_ic_clear"
+                            android:textSize="17sp"
+                            android:layout_below="@id/tv_to"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+
+            </android.support.v7.widget.CardView>
 
             <RelativeLayout
                 android:layout_width="match_parent"
