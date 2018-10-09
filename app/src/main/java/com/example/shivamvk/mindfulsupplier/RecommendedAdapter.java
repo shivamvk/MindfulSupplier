@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -63,7 +64,6 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
 
         String loadingPoint = order.getLoadingPoint();
 
-        Log.i("TAG", "onViewCreated: 11 loading "+loadingPoint);
         String destinationPoint = order.getTripDestination();
 
         /*String trucktype = order.getTruckType();
@@ -113,6 +113,8 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
             destinationPoint = String.valueOf(destination);
         }
 
+        viewHolder.tvDistance.setText(order.getDistance());
+
         viewHolder.tvLoadingPoint.setText(loadingPoint);
       //  viewHolder.tvOrderId.setText("Order Id: " + orderid);
         viewHolder.tvTripDestination.setText(destinationPoint);
@@ -130,7 +132,7 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
 
         if (APPLIEDORDERS.contains(orderid) && order.getCompleted().equals("No")){
             viewHolder.btApply.setText("Applied");
-            viewHolder.btApply.setTextColor(context.getResources().getColor(R.color.colorPrimary));
+            viewHolder.btApply.setTextColor(context.getResources().getColor(R.color.green));
             viewHolder.btApply.setBackgroundColor(context.getResources().getColor(R.color.grey));
             viewHolder.btApply.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -151,6 +153,7 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
             viewHolder.btApply.setBackgroundColor(context.getResources().getColor(R.color.darkgreen));
         } else if (APPLIEDORDERS.contains(orderid) && order.getCompleted().equals("Yes") && !supplier.equals(SharedPrefManager.getInstance(context).getNumber())){
             viewHolder.btApply.setText("Rejected");
+            viewHolder.btApply.setTextColor(context.getResources().getColor(R.color.white));
             viewHolder.btApply.setBackgroundColor(context.getResources().getColor(R.color.red));
         } else if (order.getCompleted().equals("Yes") && !APPLIEDORDERS.contains(orderid)){
             viewHolder.linearLayout.setVisibility(View.GONE);
@@ -160,7 +163,7 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
             viewHolder.cardView.requestLayout();
         } else {
             viewHolder.btApply.setText("APPLY");
-            viewHolder.btApply.setTextColor(context.getResources().getColor(android.R.color.white));
+            viewHolder.btApply.setTextColor(context.getResources().getColor(R.color.red));
             viewHolder.btApply.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -226,6 +229,26 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
             });
         }
 
+        viewHolder.btOrderId.setText(orderid);
+
+        viewHolder.btOrderId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,OrderDetailsActivity.class);
+                intent.putExtra("loadingpoint", order.getLoadingPoint());
+                intent.putExtra("destinationpoint",order.getTripDestination());
+                intent.putExtra("loadingdate",order.getLoadingDate());
+                intent.putExtra("loadingtime",order.getLoadingTime());
+                intent.putExtra("trucktype",order.getTruckType());
+                intent.putExtra("materialtype",order.getMaterialType());
+                intent.putExtra("paymenttype",order.getPaymentType());
+                intent.putExtra("nooftrucks",order.getNoOfTrucks());
+                intent.putExtra("remarks",order.getRemarks());
+                intent.putExtra("orderid",orderid);
+                context.startActivity(intent);
+            }
+        });
+
 
 
     }
@@ -238,9 +261,11 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
     public class ViewHolder extends RecyclerView.ViewHolder{
 
 
-        private TextView tvLoadingPoint,tvTripDestination,tvLoadingDate,tvLoadingTime;
+        private TextView tvLoadingPoint,tvTripDestination,tvLoadingDate,tvLoadingTime,tvDistance;
                // tvTruckType,tvMaterialType,tvRemarks,tvOrderId;
         private Button btApply;
+        private Button btOrderId;
+
         private CardView cardView;
         private LinearLayout linearLayout;
         private ImageView ivTruckType;
@@ -250,6 +275,7 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
 
             //ivTruckType = itemView.findViewById(R.id.iv_order_item_truck_type);
 
+            tvDistance = itemView.findViewById(R.id.tv_order_item_distance);
             tvLoadingPoint = itemView.findViewById(R.id.tv_order_item_loading_point);
             tvTripDestination = itemView.findViewById(R.id.tv_order_item_destination_point);
             //tvTruckType = itemView.findViewById(R.id.tv_order_item_truck_type);
@@ -262,6 +288,8 @@ public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.
              linearLayout = itemView.findViewById(R.id.ll_order_item_layout);
 
             btApply = itemView.findViewById(R.id.bt_order_item_status);
+
+            btOrderId = itemView.findViewById(R.id.bt_order_item_order_id);
         }
     }
 

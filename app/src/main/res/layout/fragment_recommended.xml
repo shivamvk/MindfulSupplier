@@ -38,12 +38,11 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
 
                     <RelativeLayout
-                        android:paddingRight="8dp"
                         android:paddingTop="4dp"
                         android:paddingLeft="4dp"
                         android:layout_weight="1"
@@ -52,7 +51,7 @@
 
                         <TextView
                             android:paddingLeft="4dp"
-                            android:textColor="@color/blue"
+                            android:textColor="@color/gray"
                             android:textSize="12sp"
                             android:id="@+id/tv_from"
                             android:layout_width="wrap_content"
@@ -61,7 +60,8 @@
 
                         <EditText
                             android:id="@+id/et_filter_from_fragment_recommended"
-                            android:textColor="@android:color/black"                            android:layout_marginTop="-8dp"
+                            android:textColor="@android:color/black"
+                            android:layout_marginTop="-8dp"
                             android:drawableRight="@drawable/places_ic_clear"
                             android:textSize="17sp"
                             android:layout_below="@id/tv_from"
@@ -72,10 +72,10 @@
 
                     <ImageView
                         android:padding="2dp"
-                        android:tint="@android:color/darker_gray"
+                        android:tint="@color/gray"
                         android:layout_marginRight="10dp"
                         android:layout_marginLeft="10dp"
-                        android:backgroundTint="@color/colorPrimary"
+                        android:backgroundTint="@color/gray"
                         android:background="@drawable/circle"
                         android:layout_gravity="center"
                         android:layout_width="wrap_content"
@@ -83,7 +83,6 @@
                         android:src="@drawable/ic_arrow_forward_black_24dp"/>
 
                     <RelativeLayout
-                        android:paddingRight="4dp"
                         android:paddingTop="4dp"
                         android:paddingLeft="8dp"
                         android:layout_weight="1"
@@ -91,7 +90,7 @@
                         android:layout_height="wrap_content">
 
                         <TextView
-                            android:textColor="@color/blue"
+                            android:textColor="@color/gray"
                             android:paddingLeft="4dp"
                             android:textSize="12sp"
                             android:id="@+id/tv_to"
@@ -100,9 +99,9 @@
                             android:text="To"/>
 
                         <EditText
+                            android:layout_marginTop="-8dp"
                             android:id="@+id/et_filter_to_fragment_recommended"
                             android:textColor="@android:color/black"
-                            android:layout_marginTop="-8dp"
                             android:drawableRight="@drawable/places_ic_clear"
                             android:textSize="17sp"
                             android:layout_below="@id/tv_to"

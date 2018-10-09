@@ -52,7 +52,8 @@ public class ActiveLoadsAdapter extends RecyclerView.Adapter<ActiveLoadsAdapter.
                 order.getLoadingDate()
         );*/
 
-        final String orderid = generateHash(order.getLoadingPoint(),
+        final String orderid = generateHash(
+                order.getLoadingPoint(),
                 order.getTripDestination(),
                 order.getTruckType(),
                 order.getMaterialType(),
@@ -110,6 +111,8 @@ public class ActiveLoadsAdapter extends RecyclerView.Adapter<ActiveLoadsAdapter.
         }
 
        // viewHolder.tvOrderId.setText("Order Id: " + orderid);
+
+        viewHolder.tvDistance.setText(order.getDistance());
         viewHolder.tvLoadingPoint.setText(loadingPoint);
         viewHolder.tvTripDestination.setText(destinationPoint);
         viewHolder.tvLoadingDate.setText(order.getLoadingDate());
@@ -120,12 +123,12 @@ public class ActiveLoadsAdapter extends RecyclerView.Adapter<ActiveLoadsAdapter.
 
         if (order.getCompleted().equals("No")){
             viewHolder.btApply.setText("Pending");
-            viewHolder.btApply.setBackgroundColor(context.getResources().getColor(R.color.colorPrimary));
-           // viewHolder.btApply.setTextColor(context.getResources().getColor(R.color.grey));
+            viewHolder.btApply.setBackgroundColor(context.getResources().getColor(R.color.grey));
+          //  viewHolder.btApply.setTextColor(context.getResources().getColor(R.color.black));
         } else if (order.getCompleted().equals("Yes")){
             viewHolder.btApply.setText("Rejected");
             viewHolder.btApply.setBackgroundColor(context.getResources().getColor(R.color.red));
-          //  viewHolder.btApply.setTextColor(context.getResources().getColor(R.color.grey));
+            viewHolder.btApply.setTextColor(context.getResources().getColor(R.color.white));
         } else if (order.getCompleted().equals("Accepted")){
             viewHolder.btApply.setText("Accepted");
             viewHolder.btApply.setBackgroundColor(context.getResources().getColor(R.color.darkgreen));
@@ -140,8 +143,10 @@ public class ActiveLoadsAdapter extends RecyclerView.Adapter<ActiveLoadsAdapter.
                     context.startActivity(intent);
                 }
             });*/
+
+            viewHolder.btPOD.setVisibility(View.VISIBLE);
         }
-        viewHolder.btPOD.setVisibility(View.VISIBLE);
+
         viewHolder.btPOD.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -195,6 +200,27 @@ public class ActiveLoadsAdapter extends RecyclerView.Adapter<ActiveLoadsAdapter.
                 context.startActivity(intent);
             }
         });
+
+
+        viewHolder.btOrderId.setText(orderid);
+
+        viewHolder.btOrderId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context,OrderDetailsActivity.class);
+                intent.putExtra("loadingpoint", order.getLoadingPoint());
+                intent.putExtra("destinationpoint",order.getTripDestination());
+                intent.putExtra("loadingdate",order.getLoadingDate());
+                intent.putExtra("loadingtime",order.getLoadingTime());
+                intent.putExtra("trucktype",order.getTruckType());
+                intent.putExtra("materialtype",order.getMaterialType());
+                intent.putExtra("paymenttype",order.getPaymentType());
+                intent.putExtra("nooftrucks",order.getNoOfTrucks());
+                intent.putExtra("remarks",order.getRemarks());
+                intent.putExtra("orderid",orderid);
+                context.startActivity(intent);
+            }
+        });
     }
 
     private String generateHash(String s, String s1, String s2, String s3, String s4, String s5) {
@@ -229,9 +255,10 @@ public class ActiveLoadsAdapter extends RecyclerView.Adapter<ActiveLoadsAdapter.
 
     class ViewHolder extends RecyclerView.ViewHolder{
 
-        private TextView tvLoadingPoint,tvTripDestination,tvLoadingDate,tvLoadingTime;
+        private TextView tvLoadingPoint,tvTripDestination,tvLoadingDate,tvLoadingTime,tvDistance;
                 //,tvTruckType,tvMaterialType,tvRemarks,tvOrderId;
         private Button btApply,btPOD;
+        private Button btOrderId;
         private CardView cardView;
 
         private ImageView ivTruckType;
@@ -242,6 +269,8 @@ public class ActiveLoadsAdapter extends RecyclerView.Adapter<ActiveLoadsAdapter.
            // ivTruckType = itemView.findViewById(R.id.iv_active_order_item_truck_type);
 
            // tvOrderId = itemView.findViewById(R.id.tv_active_order_item_order_id);
+
+            tvDistance = itemView.findViewById(R.id.tv_order_item_distance);
             tvLoadingPoint = itemView.findViewById(R.id.tv_order_item_loading_point);
             tvTripDestination = itemView.findViewById(R.id.tv_order_item_destination_point);
            // tvTruckType = itemView.findViewById(R.id.tv_active_order_item_truck_type);
@@ -253,6 +282,7 @@ public class ActiveLoadsAdapter extends RecyclerView.Adapter<ActiveLoadsAdapter.
             btApply = itemView.findViewById(R.id.bt_order_item_status);
 
             cardView = itemView.findViewById(R.id.cv_order_item_layout);
+            btOrderId = itemView.findViewById(R.id.bt_order_item_order_id);
 
             btPOD = itemView.findViewById(R.id.bt_order_item_upload_pod);
 

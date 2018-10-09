@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/cv_order_item_layout"
+    android:layout_marginBottom="8dp"
+    android:layout_marginTop="8dp">
+
+    <LinearLayout
+        android:id="@+id/ll_order_item_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_marginBottom="-4dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <Button
+                android:backgroundTint="@color/gray"
+                android:layout_marginLeft="4dp"
+                android:id="@+id/bt_order_item_order_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                android:textColor="@color/black"
+                android:text="Order id: 122345567"
+                android:textSize="16sp" />
+
+
+
+            <TextView
+                android:paddingBottom="12dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginRight="12dp"
+                android:layout_alignParentRight="true"
+                android:id="@+id/tv_order_item_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:textStyle="italic"
+                android:text="250 KM"
+                android:textColor="@android:color/black"
+                android:textSize="16sp" />
+
+
+        </RelativeLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000000"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_marginTop="4dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/tv_order_item_loading_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:maxLength="35"
+                    android:textStyle="bold"
+                    android:text="Noida, Uttar Pradesh, India"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/tv_order_item_loading_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:maxLength="27"
+                    android:text="17/09/2018"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_marginTop="4dp"
+                    android:id="@+id/tv_order_item_loading_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:maxLength="27"
+                    android:text="08:00-10:00"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="8dp"
+                android:background="#000000" />
+
+            <LinearLayout
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="4dp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_weight="3"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:textStyle="bold"
+                    android:id="@+id/tv_order_item_destination_point"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:maxLength="35"
+                    android:text="Noida, Uttar Pradesh, India"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/tv_order_item_destination_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:maxLength="27"
+                    android:text="17/09/2018"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:visibility="gone"
+                    android:layout_marginTop="4dp"
+                    android:id="@+id/tv_order_item_destination_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:maxLength="27"
+                    android:text="08:00-10:00"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/bt_order_item_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/grey"
+            android:padding="8dp"
+            android:text="Pending"
+            android:textColor="@android:color/black" />
+
+        <Button
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Upload POD"
+            android:id="@+id/bt_order_item_upload_pod"
+            android:background="@android:color/holo_blue_dark"
+            android:textColor="@android:color/white"
+            android:padding="8dp"/>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
